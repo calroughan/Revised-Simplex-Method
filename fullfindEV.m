@@ -18,6 +18,8 @@ function [s,minrc] = fullfindEV(m, n, c, A, basicvars, pi, phase1)
 %   s     = index of the entering variable 
 %   minrc = reduced cost of the entering variable
 
+threshold = eps*1e3;
+
 % If in Phase 1 concatenate A with artificial contraints 
 if phase1 == 1
     A = [A, eye(size(A, 1))];
@@ -33,7 +35,7 @@ cN(basicvars) = NaN;
 [minrc, s] = min(cN);
 
 % If no entering variable exists:
-if isnan(min(cN)) || minrc >= 0
+if isnan(min(cN)) || minrc >= -threshold
     s = 0;
 end
 

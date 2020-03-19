@@ -1,4 +1,4 @@
-function [result,z,x,pi] = fullrsm(m,n,c,A,b) 
+function [result,z,x,pi,basicvars,Binv] = fullrsm(m,n,c,A,b) 
 % Solves a linear program using Gauss-Jordan updates 
 % Assumes standard computational form 
 % Performs a Phase I procedure starting from an artificial basis 
